@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.example.kotlinapp.ui.home.HomeDestination
 import com.example.kotlinapp.ui.home.HomeScreen
 import com.example.kotlinapp.ui.item.ItemEntryDestination
+import com.example.kotlinapp.ui.item.ItemEntryScreen
 
 @Composable
 fun ItemNavHost(
@@ -21,6 +22,12 @@ fun ItemNavHost(
         composable(HomeDestination.route) {
             HomeScreen(
                 navigateToItemEntry = { navController.navigate(ItemEntryDestination.route) }
+            )
+        }
+        composable(ItemEntryDestination.route) {
+            ItemEntryScreen(
+                navigateBack = {navController.popBackStack()},
+                navigateUp = {navController.navigateUp()}
             )
         }
     }

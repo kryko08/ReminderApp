@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">KotlinApp</string>
+    <string name="home_title">Poznámky</string>
+    <string name="item_entry_title">Přidat</string>
+    <string name="item_details_title">Detail</string>
+    <string name="back_button">Zpět</string>
+    <string name="action_button_add_text">Přidat poznámku</string>
+    <string name="home_no_items">Nemáte žádné poznámky. Přidejte je kliknutím na "+"</string>
+    <string name="save_action">Uložit poznámku</string>
 </resources>
