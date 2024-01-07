@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.KotlinApp.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#87D43A</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
+    </style>
+    <style name="Theme.KotlinApp.SplashNoActionBar" parent="Theme.KotlinApp.SplashScreen">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

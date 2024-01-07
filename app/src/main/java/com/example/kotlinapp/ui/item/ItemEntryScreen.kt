@@ -50,7 +50,7 @@ fun ItemEntryScreen(
     canNavigateBack: Boolean = true,
     viewModel: ItemEntryViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ){
-    val coroutineScope = rememberCoroutineScope()
+    val coroutineScope = rememberCoroutineScope() // composition-aware scope to launch a coroutine outside a composable, canceled when composable leaves composition
     Scaffold(
         topBar = {
             TopAppBar(
@@ -121,7 +121,7 @@ fun ItemInputForm(
         OutlinedTextField(
             value = itemDetails.header,
             onValueChange = { onValueChange(itemDetails.copy(header = it)) },
-            label = { Text("Název") },
+            label = { Text("Header") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true
@@ -129,9 +129,10 @@ fun ItemInputForm(
         OutlinedTextField(
             value = itemDetails.description,
             onValueChange = { onValueChange(itemDetails.copy(description = it)) },
-            label = { Text("Popis") },
+            label = { Text("Description") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
+            maxLines = 3
         )
         PriorityDropDownMenu(
             itemDetails = itemDetails,
@@ -139,7 +140,7 @@ fun ItemInputForm(
         )
         if (enabled) {
             Text(
-                text = "pole povinná",
+                text = "All fields are mandatory.",
                 modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_medium))
             )
         }
@@ -173,7 +174,7 @@ fun PriorityDropDownMenu(
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = isExpanded)
                 },
                 placeholder = {
-                    Text(text = "Please select task priority")
+                    Text(text = "Select a note priority")
                 },
                 colors = ExposedDropdownMenuDefaults.textFieldColors(),
                 modifier = Modifier.menuAnchor()
